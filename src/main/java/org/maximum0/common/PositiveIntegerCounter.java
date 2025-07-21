@@ -1,9 +1,9 @@
-package org.maximum0.user.domain;
+package org.maximum0.common;
 
-public class UserRelationCounter {
+public class PositiveIntegerCounter {
     private int count;
 
-    public UserRelationCounter() {
+    public PositiveIntegerCounter() {
         this.count = 0;
     }
 
