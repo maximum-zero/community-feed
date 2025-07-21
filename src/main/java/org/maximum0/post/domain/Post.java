@@ -25,6 +25,14 @@ public class Post {
         this.likeCounter = new PositiveIntegerCounter();
     }
 
+    public void updatePost(User user, String updatedContent) {
+        if (!this.author.equals(user)) {
+            throw new IllegalArgumentException();
+        }
+
+        this.content.updateContent(updatedContent);
+    }
+
     public void like(User user) {
         if (this.author.equals(user)) {
             throw new IllegalArgumentException();
