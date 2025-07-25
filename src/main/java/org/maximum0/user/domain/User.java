@@ -32,7 +32,7 @@ public class User {
         targetUser.increaseFollowerCount();
     }
 
-    public void unFollow(User targetUser) {
+    public void unfollow(User targetUser) {
         if (this.equals(targetUser)) {
             throw new IllegalArgumentException();
         }
@@ -47,6 +47,18 @@ public class User {
 
     private void decreaseFollowerCount() {
         followerCount.decrease();
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public int followerCount() {
+        return this.followerCount.getCount();
+    }
+
+    public int followingCount() {
+        return this.followingCount.getCount();
     }
 
     @Override

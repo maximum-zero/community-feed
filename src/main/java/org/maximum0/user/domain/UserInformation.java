@@ -5,6 +5,10 @@ public class UserInformation {
     private final String profileImageUrl;
 
     public UserInformation(String userName, String profileImageUrl) {
+        if (userName == null || userName.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
         this.userName = userName;
         this.profileImageUrl = profileImageUrl;
     }
