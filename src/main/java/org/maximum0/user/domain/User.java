@@ -61,6 +61,18 @@ public class User {
         return this.followingCount.getCount();
     }
 
+    public UserInformation getUserInformation() {
+        return userInformation;
+    }
+
+    public PositiveIntegerCounter getFollowingCount() {
+        return followingCount;
+    }
+
+    public PositiveIntegerCounter getFollowerCount() {
+        return followerCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
