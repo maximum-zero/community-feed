@@ -55,4 +55,13 @@ public class Comment {
 
         likeCounter.decrease();
     }
+
+    public int getLikeCount() {
+        return likeCounter.getCount();
+    }
+
+    public String getContent() {
+        return content.getContentText();
+    }
+
 }

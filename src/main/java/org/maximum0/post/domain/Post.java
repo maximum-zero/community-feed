@@ -52,4 +52,12 @@ public class Post {
 
         likeCounter.decrease();
     }
+
+    public int getLikeCount() {
+        return likeCounter.getCount();
+    }
+
+    public String getContent() {
+        return content.getContentText();
+    }
 }

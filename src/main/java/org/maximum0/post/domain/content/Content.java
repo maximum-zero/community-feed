@@ -13,7 +13,7 @@ public abstract class Content {
     }
 
     public void updateContent(String updatedContent) {
-        checkedContent(contentText);
+        checkedContent(updatedContent);
         this.contentText = updatedContent;
         this.auditTimestamp.updatedAudit();
     }
