@@ -53,6 +53,14 @@ public class Post {
         likeCounter.decrease();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
     public int getLikeCount() {
         return likeCounter.getCount();
     }
@@ -60,4 +68,13 @@ public class Post {
     public String getContent() {
         return content.getContentText();
     }
+
+    public Content getContentObject() {
+        return content;
+    }
+
+    public PostPublicationState getState() {
+        return state;
+    }
+
 }

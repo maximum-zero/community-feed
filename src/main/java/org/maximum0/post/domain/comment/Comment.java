@@ -61,12 +61,28 @@ public class Comment {
         likeCounter.decrease();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
     public int getLikeCount() {
         return likeCounter.getCount();
     }
 
     public String getContent() {
         return content.getContentText();
+    }
+
+    public Content getContentObject() {
+        return content;
     }
 
 }
