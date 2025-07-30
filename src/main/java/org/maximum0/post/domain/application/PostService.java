@@ -2,7 +2,7 @@ package org.maximum0.post.domain.application;
 
 import org.maximum0.post.domain.Post;
 import org.maximum0.post.domain.application.dto.CreatePostRequestDto;
-import org.maximum0.post.domain.application.dto.LikePostRequestDto;
+import org.maximum0.post.domain.application.dto.LikeRequestDto;
 import org.maximum0.post.domain.application.dto.UpdatePostRequestDto;
 import org.maximum0.post.domain.application.interfaces.LikeRepository;
 import org.maximum0.post.domain.application.interfaces.PostRepository;
@@ -41,7 +41,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public void likePost(LikePostRequestDto dto) {
+    public void likePost(LikeRequestDto dto) {
         User user = userService.getUser(dto.userId());
         Post post = getPost(dto.id());
 
@@ -53,7 +53,7 @@ public class PostService {
         likeRepository.like(post, user);
     }
 
-    public void unlikePost(LikePostRequestDto dto) {
+    public void unlikePost(LikeRequestDto dto) {
         User user = userService.getUser(dto.userId());
         Post post = getPost(dto.id());
 

@@ -2,6 +2,7 @@ package org.maximum0.post.domain.comment;
 
 import org.maximum0.common.PositiveIntegerCounter;
 import org.maximum0.post.domain.Post;
+import org.maximum0.post.domain.content.CommentContent;
 import org.maximum0.post.domain.content.Content;
 import org.maximum0.user.domain.User;
 
@@ -11,6 +12,10 @@ public class Comment {
     private final User author;
     private final Content content;
     private final PositiveIntegerCounter likeCounter;
+
+    public static Comment createComment(Post post, User author, String content) {
+        return new Comment(null, post, author, new CommentContent(content));
+    }
 
     public Comment(Long id, Post post, User author, Content content) {
         if (post == null) {
