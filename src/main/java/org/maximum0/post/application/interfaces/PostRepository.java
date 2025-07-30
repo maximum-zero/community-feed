@@ -1,4 +1,4 @@
-package org.maximum0.post.domain.application.interfaces;
+package org.maximum0.post.application.interfaces;
 
 import java.util.Optional;
 import org.maximum0.post.domain.Post;

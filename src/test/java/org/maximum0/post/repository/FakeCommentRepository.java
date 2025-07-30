@@ -3,7 +3,7 @@ package org.maximum0.post.repository;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import org.maximum0.post.domain.application.interfaces.CommentRepository;
+import org.maximum0.post.application.interfaces.CommentRepository;
 import org.maximum0.post.domain.comment.Comment;
 
 public class FakeCommentRepository implements CommentRepository {

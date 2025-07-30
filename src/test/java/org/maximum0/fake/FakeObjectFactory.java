@@ -1,10 +1,10 @@
 package org.maximum0.fake;
 
-import org.maximum0.post.domain.application.CommentService;
-import org.maximum0.post.domain.application.PostService;
-import org.maximum0.post.domain.application.interfaces.CommentRepository;
-import org.maximum0.post.domain.application.interfaces.LikeRepository;
-import org.maximum0.post.domain.application.interfaces.PostRepository;
+import org.maximum0.post.application.CommentService;
+import org.maximum0.post.application.PostService;
+import org.maximum0.post.application.interfaces.CommentRepository;
+import org.maximum0.post.application.interfaces.LikeRepository;
+import org.maximum0.post.application.interfaces.PostRepository;
 import org.maximum0.post.repository.FakeCommentRepository;
 import org.maximum0.post.repository.FakeLikeRepository;
 import org.maximum0.post.repository.FakePostRepository;

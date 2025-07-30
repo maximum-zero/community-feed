@@ -1,11 +1,11 @@
-package org.maximum0.post.domain.application;
+package org.maximum0.post.application;
 
 import org.maximum0.post.domain.Post;
-import org.maximum0.post.domain.application.dto.CreatePostRequestDto;
-import org.maximum0.post.domain.application.dto.LikeRequestDto;
-import org.maximum0.post.domain.application.dto.UpdatePostRequestDto;
-import org.maximum0.post.domain.application.interfaces.LikeRepository;
-import org.maximum0.post.domain.application.interfaces.PostRepository;
+import org.maximum0.post.application.dto.CreatePostRequestDto;
+import org.maximum0.post.application.dto.LikeRequestDto;
+import org.maximum0.post.application.dto.UpdatePostRequestDto;
+import org.maximum0.post.application.interfaces.LikeRepository;
+import org.maximum0.post.application.interfaces.PostRepository;
 import org.maximum0.post.domain.content.Content;
 import org.maximum0.post.domain.content.PostContent;
 import org.maximum0.user.application.UserService;

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import org.maximum0.post.domain.Post;
-import org.maximum0.post.domain.application.interfaces.LikeRepository;
+import org.maximum0.post.application.interfaces.LikeRepository;
 import org.maximum0.post.domain.comment.Comment;
 import org.maximum0.user.domain.User;
 

@@ -1,4 +1,4 @@
-package org.maximum0.post.domain.application.dto;
+package org.maximum0.post.application.dto;
 
 public record CreateCommentRequestDto(
         Long postId,

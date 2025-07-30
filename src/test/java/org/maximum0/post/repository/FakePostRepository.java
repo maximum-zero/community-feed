@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import org.maximum0.post.domain.Post;
-import org.maximum0.post.domain.application.interfaces.PostRepository;
+import org.maximum0.post.application.interfaces.PostRepository;
 
 public class FakePostRepository implements PostRepository {
     private final Map<Long, Post> store = new HashMap<>();
