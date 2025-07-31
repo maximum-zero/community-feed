@@ -1,11 +1,17 @@
 package org.maximum0.post.domain.comment;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import org.maximum0.common.domain.PositiveIntegerCounter;
 import org.maximum0.post.domain.Post;
 import org.maximum0.post.domain.content.CommentContent;
 import org.maximum0.post.domain.content.Content;
 import org.maximum0.user.domain.User;
 
+@Getter
+@Builder
+@AllArgsConstructor
 public class Comment {
     private final Long id;
     private final Post post;
@@ -59,18 +65,6 @@ public class Comment {
         }
 
         likeCounter.decrease();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public User getAuthor() {
-        return author;
     }
 
     public int getLikeCount() {

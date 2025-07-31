@@ -1,8 +1,14 @@
 package org.maximum0.user.domain;
 
 import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import org.maximum0.common.domain.PositiveIntegerCounter;
 
+@Getter
+@Builder
+@AllArgsConstructor
 public class User {
     private final Long id;
     private final UserInformation userInformation;
@@ -49,8 +55,12 @@ public class User {
         followerCount.decrease();
     }
 
-    public Long getId() {
-        return this.id;
+    public String userName() {
+        return this.userInformation.getUserName();
+    }
+
+    public String profileImageUrl() {
+        return this.userInformation.getProfileImageUrl();
     }
 
     public int followerCount() {
@@ -59,18 +69,6 @@ public class User {
 
     public int followingCount() {
         return this.followingCount.getCount();
-    }
-
-    public UserInformation getUserInformation() {
-        return userInformation;
-    }
-
-    public PositiveIntegerCounter getFollowingCount() {
-        return followingCount;
-    }
-
-    public PositiveIntegerCounter getFollowerCount() {
-        return followerCount;
     }
 
     @Override
