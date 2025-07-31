@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # https://hub.docker.com/_/postgres
+  db:
+    image: postgres:17-alpine
+    container_name: db
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: community
+      POSTGRES_USER: maximum0
+      POSTGRES_PASSWORD: maximum0
+    volumes:
+      - db_data:/var/lib/postgresql
+
+volumes:
+  db_data:
+    driver: local
