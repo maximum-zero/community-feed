@@ -13,6 +13,7 @@ public class FakeCommentRepository implements CommentRepository {
     public Comment save(Comment comment) {
         if (comment.getId() != null) {
             store.put(comment.getId(), comment);
+            return comment;
         }
 
         Long id = store.size() + 1L;

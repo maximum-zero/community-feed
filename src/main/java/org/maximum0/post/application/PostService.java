@@ -45,7 +45,7 @@ public class PostService {
         User user = userService.getUser(dto.userId());
         Post post = getPost(dto.id());
 
-        if (!likeRepository.isAlreadyLike(post, user)) {
+        if (likeRepository.isAlreadyLike(post, user)) {
             return;
         }
 
