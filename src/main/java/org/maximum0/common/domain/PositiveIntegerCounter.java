@@ -1,4 +1,4 @@
-package org.maximum0.common;
+package org.maximum0.common.domain;
 
 public class PositiveIntegerCounter {
     private int count;

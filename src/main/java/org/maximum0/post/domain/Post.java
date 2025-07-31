@@ -1,6 +1,6 @@
 package org.maximum0.post.domain;
 
-import org.maximum0.common.PositiveIntegerCounter;
+import org.maximum0.common.domain.PositiveIntegerCounter;
 import org.maximum0.post.domain.content.Content;
 import org.maximum0.post.domain.content.PostPublicationState;
 import org.maximum0.user.domain.User;

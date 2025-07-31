@@ -1,6 +1,6 @@
 package org.maximum0.post.domain.comment;
 
-import org.maximum0.common.PositiveIntegerCounter;
+import org.maximum0.common.domain.PositiveIntegerCounter;
 import org.maximum0.post.domain.Post;
 import org.maximum0.post.domain.content.CommentContent;
 import org.maximum0.post.domain.content.Content;

@@ -1,7 +1,7 @@
 package org.maximum0.user.domain;
 
 import java.util.Objects;
-import org.maximum0.common.PositiveIntegerCounter;
+import org.maximum0.common.domain.PositiveIntegerCounter;
 
 public class User {
     private final Long id;
