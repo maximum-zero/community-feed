@@ -3,7 +3,9 @@ package org.maximum0.user.application;
 import org.maximum0.user.application.dto.FollowUserRequestDto;
 import org.maximum0.user.application.interfaces.UserRelationRepository;
 import org.maximum0.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserRelationService {
     private final UserService userService;
     private final UserRelationRepository userRelationRepository;
