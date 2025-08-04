@@ -9,7 +9,9 @@ import org.maximum0.post.application.interfaces.LikeRepository;
 import org.maximum0.post.domain.comment.Comment;
 import org.maximum0.user.application.UserService;
 import org.maximum0.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CommentService {
     private final UserService userService;
     private final PostService postService;
@@ -29,7 +31,7 @@ public class CommentService {
     }
 
     public Comment getComment(Long id) {
-        return commentRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Comment not found"));
+        return commentRepository.findById(id);
     }
 
     public Comment createComment(CreateCommentRequestDto dto) {
@@ -40,9 +42,8 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public Comment updateComment(UpdateCommentRequestDto dto) {
-        Comment comment = getComment(dto.id());
-        Post post = postService.getPost(dto.postId());
+    public Comment updateComment(Long CommentId, UpdateCommentRequestDto dto) {
+        Comment comment = getComment(CommentId);
         User user = userService.getUser(dto.authorId());
 
         comment.updateComment(user, dto.content());

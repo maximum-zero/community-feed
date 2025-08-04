@@ -10,7 +10,9 @@ import org.maximum0.post.domain.content.Content;
 import org.maximum0.post.domain.content.PostContent;
 import org.maximum0.user.application.UserService;
 import org.maximum0.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PostService {
     private final UserService userService;
     private final PostRepository postRepository;
@@ -23,7 +25,7 @@ public class PostService {
     }
 
     public Post getPost(Long id) {
-        return postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Post not found"));
+        return postRepository.findById(id);
     }
 
     public Post createPost(CreatePostRequestDto dto) {
@@ -33,9 +35,9 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Post updatePost(UpdatePostRequestDto dto) {
+    public Post updatePost(Long postId, UpdatePostRequestDto dto) {
         User author = userService.getUser(dto.authorId());
-        Post post = getPost(dto.id());
+        Post post = getPost(postId);
 
         post.updatePost(author, dto.content(), dto.state());
         return postRepository.save(post);
