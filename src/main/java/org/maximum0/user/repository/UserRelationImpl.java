@@ -2,6 +2,7 @@ package org.maximum0.user.repository;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.maximum0.post.repository.command.UserPostQueueCommandRepository;
 import org.maximum0.user.application.interfaces.UserRelationRepository;
 import org.maximum0.user.domain.User;
 import org.maximum0.user.repository.entity.UserEntity;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserRelationImpl implements UserRelationRepository {
     private final JpaUserRelationRepository jpaUserRelationRepository;
     private final JpaUserRepository jpaUserRepository;
+    private final UserPostQueueCommandRepository commandRepository;
 
     @Override
     public boolean isAlreadyFollow(User user, User targetUser) {
@@ -30,6 +32,7 @@ public class UserRelationImpl implements UserRelationRepository {
         UserRelationEntity entity = new UserRelationEntity(user.getId(), targetUser.getId());
         jpaUserRelationRepository.save(entity);
         jpaUserRepository.saveAll(List.of(new UserEntity(user), new UserEntity(targetUser)));
+        commandRepository.saveFollowPost(user.getId(), targetUser.getId());
     }
 
     @Transactional
@@ -38,5 +41,6 @@ public class UserRelationImpl implements UserRelationRepository {
         UserRelationIdEntity id = new UserRelationIdEntity(user.getId(), targetUser.getId());
         jpaUserRelationRepository.deleteById(id);
         jpaUserRepository.saveAll(List.of(new UserEntity(user), new UserEntity(targetUser)));
+        commandRepository.deleteUnfollowPost(user.getId(), targetUser.getId());
     }
 }
