@@ -20,10 +20,14 @@ public class CommentRepositoryImpl implements CommentRepository {
     @Override
     public Comment save(Comment comment) {
         Post targetPost = comment.getPost();
-        CommentEntity commentEntity = new CommentEntity(comment);
-        commentEntity = jpaCommentRepository.save(commentEntity);
-        jpaPostRepository.increaseCommentCount(targetPost.getId());
-        return commentEntity.toComment();
+
+        if (comment.getId() != null) {
+            jpaCommentRepository.updateComment(comment);
+            jpaPostRepository.increaseCommentCount(targetPost.getId());
+            return comment;
+        }
+        CommentEntity entity = jpaCommentRepository.save(new CommentEntity(comment));
+        return entity.toComment();
     }
 
     @Override
