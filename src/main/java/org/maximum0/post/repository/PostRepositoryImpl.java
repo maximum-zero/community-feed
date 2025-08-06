@@ -13,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class PostRepositoryImpl implements PostRepository {
     private final JpaPostRepository jpaPostRepository;
-    private final UserPostQueueCommandRepository commandRepository;
+    private final UserPostQueueCommandRepository queueRepository;
+
 
     @Transactional
     @Override
@@ -23,6 +24,13 @@ public class PostRepositoryImpl implements PostRepository {
             return post;
         }
         PostEntity postEntity = jpaPostRepository.save(new PostEntity(post));
+        return postEntity.toPost();
+    }
+
+    @Override
+    public Post publish(Post post) {
+        PostEntity postEntity = jpaPostRepository.save(new PostEntity(post));
+        queueRepository.publishPost(postEntity);
         return postEntity.toPost();
     }
 

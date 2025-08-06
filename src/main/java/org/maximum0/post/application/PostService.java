@@ -32,7 +32,7 @@ public class PostService {
         User author = userService.getUser(dto.authorId());
         Content content = new PostContent(dto.content());
         Post post = new Post(null, author, content, dto.state());
-        return postRepository.save(post);
+        return postRepository.publish(post);
     }
 
     public Post updatePost(Long postId, UpdatePostRequestDto dto) {
