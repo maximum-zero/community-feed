@@ -15,6 +15,10 @@ public class User {
     private final PositiveIntegerCounter followingCount;
     private final PositiveIntegerCounter followerCount;
 
+    public User(String userName, String profileImageUrl) {
+        this(null, userName, profileImageUrl);
+    }
+
     public User(Long id, String userName, String profileImageUrl) {
         this.id = id;
         this.userInformation = new UserInformation(userName, profileImageUrl);
