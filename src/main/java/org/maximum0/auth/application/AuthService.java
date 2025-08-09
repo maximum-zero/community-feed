@@ -2,9 +2,12 @@ package org.maximum0.auth.application;
 
 import lombok.RequiredArgsConstructor;
 import org.maximum0.auth.application.dto.CreateUserAuthRequestDto;
+import org.maximum0.auth.application.dto.LoginRequestDto;
+import org.maximum0.auth.application.dto.UserAccessTokenResponseDto;
 import org.maximum0.auth.application.interfaces.EmailVerificationRepository;
 import org.maximum0.auth.application.interfaces.UserAuthRepository;
 import org.maximum0.auth.domain.Email;
+import org.maximum0.auth.domain.TokenProvider;
 import org.maximum0.auth.domain.UserAuth;
 import org.maximum0.user.domain.User;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class AuthService {
     private final UserAuthRepository userAuthRepository;
     private final EmailVerificationRepository verificationRepository;
+    private final TokenProvider tokenProvider;
 
     public Long registerUser(CreateUserAuthRequestDto dto) {
         Email email = Email.createEmail(dto.email());
@@ -26,6 +30,12 @@ public class AuthService {
         User user = new User(dto.name(), dto.profileImageUrl());
         userAuth = userAuthRepository.registerUser(userAuth, user);
         return userAuth.getUserId();
+    }
+
+    public UserAccessTokenResponseDto login(LoginRequestDto dto) {
+        UserAuth userAuth = userAuthRepository.loginUser(dto.email(), dto.password());
+        String token = tokenProvider.createToken(userAuth.getUserId(), userAuth.getUserRole());
+        return new UserAccessTokenResponseDto(token);
     }
 
 }

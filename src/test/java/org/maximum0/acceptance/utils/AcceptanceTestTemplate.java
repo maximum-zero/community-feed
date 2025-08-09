@@ -38,4 +38,8 @@ public class AcceptanceTestTemplate {
         return loader.getUserId(email);
     }
 
+    protected void createUser(String email) {
+        loader.createUser(email);
+    }
+
 }
