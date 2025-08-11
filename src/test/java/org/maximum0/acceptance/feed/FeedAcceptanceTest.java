@@ -1,4 +1,4 @@
-package org.maximum0;
+package org.maximum0.acceptance.feed;
 
 import static org.maximum0.acceptance.steps.FeedAcceptanceSteps.requestCreatePost;
 import static org.maximum0.acceptance.steps.FeedAcceptanceSteps.requestFeed;
