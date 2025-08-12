@@ -4,7 +4,7 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.maximum0.admin.ui.dto.GetDailyRegisterUserResponseDto;
+import org.maximum0.admin.ui.dto.users.GetDailyRegisterUserResponseDto;
 import org.maximum0.admin.ui.query.UserStateQueryRepository;
 import org.maximum0.common.TimeCalculator;
 import org.maximum0.user.repository.entity.QUserEntity;

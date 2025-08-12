@@ -3,6 +3,7 @@ package org.maximum0.auth.repository.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.maximum0.auth.domain.UserAuth;
@@ -17,6 +18,7 @@ public class UserAuthEntity {
     private String password;
     private String role;
     private Long userId;
+    private LocalDateTime lastLoginAt;
 
     public UserAuthEntity(UserAuth userAuth, Long userId) {
         this.email = userAuth.getEmail();
@@ -27,6 +29,10 @@ public class UserAuthEntity {
 
     public UserAuth toUserAuth() {
         return new UserAuth(email, password, role, userId);
+    }
+
+    public void updateLastLoginAt() {
+        lastLoginAt = LocalDateTime.now();
     }
 
 }
