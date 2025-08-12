@@ -1,4 +1,4 @@
-package org.maximum0.common;
+package org.maximum0.common.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

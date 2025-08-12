@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.maximum0.common.TimeCalculator;
+import org.maximum0.common.utils.TimeCalculator;
 
 @AllArgsConstructor
 @NoArgsConstructor
