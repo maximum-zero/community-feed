@@ -1,4 +1,4 @@
-package org.maximum0.common;
+package org.maximum0.common.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
