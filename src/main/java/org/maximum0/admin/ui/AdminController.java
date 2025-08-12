@@ -2,6 +2,8 @@ package org.maximum0.admin.ui;
 
 import lombok.RequiredArgsConstructor;
 import org.maximum0.admin.ui.dto.GetTableListResponse;
+import org.maximum0.admin.ui.dto.posts.GetPostTableRequestDto;
+import org.maximum0.admin.ui.dto.posts.GetPostTableResponseDto;
 import org.maximum0.admin.ui.dto.users.GetUserTableRequestDto;
 import org.maximum0.admin.ui.dto.users.GetUserTableResponseDto;
 import org.maximum0.admin.ui.query.AdminTableQueryRepository;
@@ -34,6 +36,18 @@ public class AdminController {
         GetTableListResponse<GetUserTableResponseDto> result = adminTableQueryRepository.getUserTableData(dto);
         modelAndView.addObject("requestDto", dto);
         modelAndView.addObject("userList", result.getTableData());
+        modelAndView.addObject("totalCount", result.getTotalCount());
+        return modelAndView;
+    }
+
+    @GetMapping("/posts")
+    public ModelAndView posts(GetPostTableRequestDto dto) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("posts");
+
+        GetTableListResponse<GetPostTableResponseDto> result = adminTableQueryRepository.getPostTableData(dto);
+        modelAndView.addObject("requestDto", dto);
+        modelAndView.addObject("postList", result.getTableData());
         modelAndView.addObject("totalCount", result.getTotalCount());
         return modelAndView;
     }
